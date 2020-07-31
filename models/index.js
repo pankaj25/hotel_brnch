@@ -13,19 +13,7 @@ var db        = {};
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
 
-
-const sequelize = new Sequelize("hoteldb", "postgres", "pradyumna", {
-	host: "localhost",
-	dialect: "postgres",
-	operatorAliases: false,
-	pool: {
-		max: 5, //maximum number of connections allowed
-		min: 0, // min no. of connections
-		aquire: 30000, //max time in milliseconds to get a connection before sending error
-		idle: 10000 //max time connection can be idle for
-	}
-})
-
+const sequelize = new Sequelize(process.env.DATABASE_URL);
 
 fs
   .readdirSync(__dirname)
