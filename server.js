@@ -24,6 +24,7 @@ app.use(express.static(path.resolve(__dirname, 'build')))
 models.sequelize.sync()
 // models.sequelize.sync({ force:true})
 app.get('/*', (req, res) => {
+	console.log(path.join(__dirname, 'build', 'index.html'))
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
